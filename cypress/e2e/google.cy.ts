@@ -2,19 +2,15 @@
 import { GoogleSearch } from '../page-objects/google-search.page';
 const search = new GoogleSearch();
 
-const project = {
-    name: 'zeh',
-    description: `faker.random.words(5)`
-  }
-describe('Google Navigation', () => {
+describe('ReadFile', () => {
     it.only('readFile',() => {
-        cy.readFile('/home/warnner/Documentos/Estudos/QA/qa_cypress/cypress/downloads/qgames.log').should('contain', `${project.name}`)
-
-       
-        //cy.readFile('/home/warnner/Documentos/Estudos/QA/qa_cypress/cypress/downloads/qgames.log').should('eq', 'zeh');
+        const teste = cy.exec('node test.tsx')
+        teste
+        cy.log(teste)
+        
     });
 
-    it('Google Search',() => {
+    it('Init Studies - Google Search',() => {
         cy.visit('https://www.google.com');
 
         search.googleSearch().type('Something');
